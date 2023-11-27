@@ -1,0 +1,117 @@
+<style>
+  /* Estilos para la barra de navegación */
+  nav {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #333; /* Cambia esto al color que desees */
+  }
+
+  .menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    color: #888; /* Cambia esto al color que desees */
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .menu-button:hover {
+    background-color: #f5f5f5; /* Cambia esto al color que desees */
+    color: #333; /* Cambia esto al color que desees */
+  }
+
+  /* Estilos para la lista de menú */
+  ul.menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding: 0;
+  }
+
+  ul.menu-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  .menu-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #333; /* Cambia esto al color que desees */
+    text-decoration: none;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .menu-link:hover {
+    background-color: #f5f5f5; /* Cambia esto al color que desees */
+    color: #333; /* Cambia esto al color que desees */
+  }
+
+  /* Estilos para el botón de registro */
+  .signup-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #007bff; /* Cambia esto al color que desees */
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
+
+  .signup-button:hover {
+    background-color: #0056b3; /* Cambia esto al color que desees */
+  }
+
+  /* Estilos para el botón de inicio de sesión */
+  .login-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #ffffff;
+    color: #007bff; /* Cambia esto al color que desees */
+    text-decoration: none;
+    border: 1px solid #007bff; /* Cambia esto al color que desees */
+    border-radius: 0.25rem;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .login-button:hover {
+    background-color: #f5f5f5; /* Cambia esto al color que desees */
+    color: #0056b3; /* Cambia esto al color que desees */
+  }
+</style>
+
+<nav>
+  <div class="logo">PennyWise</div>
+  <button class="menu-button">
+    <span>&#9776;</span>
+  </button>
+  <ul class="menu-list">
+    <% if user_signed_in? %>
+      <li><a href="#" class="menu-link">New Category</a></li>
+      <li><a href="#" class="menu-link">Pricing</a></li>
+      <li><%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: "menu-link" %></li>
+    <% else %>
+      <li><%= link_to 'Sign Up', new_user_registration_path, class: "signup-button" %></li>
+      <li><%= link_to 'Log In', user_session_path, class: "login-button" %></li>
+    <% end %>
+  </ul>
+</nav>

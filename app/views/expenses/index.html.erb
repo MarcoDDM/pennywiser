@@ -1,0 +1,160 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,700;0,900;1,300;1,400&family=Lilita+One&family=Lobster&display=swap" rel="stylesheet">
+
+<style>
+body {
+      margin: 0;
+      padding: 0;
+    }
+.navbar {
+      background-color: #007bff;
+      font-family: "Lato", sans-serif;
+      color: #fff;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    p a{
+      color: #fff4;
+      font-family: "Lato", sans-serif;
+    }
+
+    .navbar h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar a img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    /* Estilo para la clase .banner */
+    /* Estilo para la clase .banner */
+    .banner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    /* Estilo para la imagen del icono de la categoría */
+    .cat-image img {
+      max-width: 100px; /* Ajusta el tamaño máximo de la imagen */
+      height: auto; /* Mantiene la proporción de la imagen */
+    }
+    
+    /* Estilo para el contenedor de la imagen y el nombre de la categoría */
+    .cat-and-name {
+      display: flex;
+      flex-direction: row; /* Cambia la dirección a horizontal */
+      align-items: center;
+      justify-content: center; /* Centra horizontalmente los elementos */
+      margin-top: 10px; /* Espacio entre la imagen y el nombre */
+    }
+    
+    /* Estilo para el nombre de la categoría */
+    .category-name h1 {
+      font-size: 24px; /* Tamaño de fuente del nombre de la categoría */
+      margin-left: 10px; /* Espacio entre la imagen y el nombre */
+    }
+    
+    /* Agrega otros estilos según sea necesario */
+    .btn-primary {
+    background-color: #007bff;
+    width: 100%; /* Ancho al 100% del contenedor */
+    color: #fff;
+    padding: 10px 0; /* Cambiar el espaciado vertical en lugar de horizontal */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-primary a {
+    color: #fff;
+    text-decoration: none
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  .center {
+    width: 95%;
+    margin-left: 10px;
+}
+
+.expense-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+</style>
+
+<body>
+<div class="container">
+<div class="navbar">
+<a href="<%= categories_index_path %>">
+      <img src="https://img.icons8.com/ios-filled/48/ffffff/long-arrow-left.png" alt="Back" />
+      Back
+    </a>
+    <h1><%= @category.name %></h1>
+  </div>
+<div class="banner">
+<div class="cat-and-name">
+  <div class="cat-image">
+    <%= image_tag @category.icon_link.presence || 'https://img.icons8.com/?size=512&id=kLORTzuNOM2d&format=png'%>
+  </div>
+  <h1><%= @category.name %></h1>
+  <div>
+  </div>
+    <p></p>
+  </div>
+  <div>
+  </div>
+</div>
+<main>
+   <div class="center">
+      <% if @expenses.blank? %>
+         <p>No Expenses Yet!</p>
+      <% else %>
+         <div class="card-list">
+            <% @expenses.each do |expense| %>
+               <div class="transaction-card hover">
+               <div class="expense-info">
+                  <a><p><%= expense.name %></p></a>
+                  <a>$<%= expense.amount %></a>
+                </div>
+               </div>
+            <% end %>
+         </div>
+      <% end %>
+      <div class="total-banner">
+         <h4>Total Amount</h4>
+         <% if @total_amount.blank? %>
+         <p>$00.00</p>
+      <% else %>
+         <p>$<%=@total_amount %></p>
+      </div>
+      <% end %>
+      <button class="btn-primary" type="button">
+   <%= link_to "ADD A NEW EXPENSE", new_category_expense_path(@category) %>
+  </button>
+   </div>
+   
+</main>
+</div>
+</body>
