@@ -18,7 +18,11 @@
 </style>
 
 <h2>Welcome to PennyWise</h2>
-<p>Hi, <%= current_user.name %>!<br> Thanks to start your session!</p>
+<% if current_user %>
+  <p>Hi, <%= current_user.name %>!<br> Thanks for starting your session!</p>
+<% else %>
+  <p>Welcome to PennyWise! Please sign in to continue.</p>
+<% end %>
 
 <div class="expense-buttons">
   <div class="button-wrapper">

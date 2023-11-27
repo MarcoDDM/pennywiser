@@ -18,9 +18,10 @@ class Users::Sessions::SessionsController < Devise::SessionsController
 
   protected
 
-  def after_sign_in_path_for(_resource)
-    welcome_path
+  def after_sign_in_path_for(resource)
+    root_path
   end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
