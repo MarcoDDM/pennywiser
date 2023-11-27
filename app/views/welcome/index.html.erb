@@ -1,0 +1,31 @@
+<style>
+  /* Estilos para los botones */
+  .btn-primary {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<h2>Welcome to PennyWise</h2>
+<p>Hi, <%= current_user.name %>!<br> Thanks to start your session!</p>
+
+<div class="expense-buttons">
+  <div class="button-wrapper">
+    <%= link_to 'Add Expense', new_expense_path, class: 'btn-primary' %>
+  </div>
+  <div class="button-wrapper">
+    <%= link_to 'Add Category', new_category_path, class: 'btn-primary' %>
+  </div>
+</div>
+

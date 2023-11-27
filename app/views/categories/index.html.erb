@@ -1,0 +1,194 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,700;0,900;1,300;1,400&family=Lilita+One&family=Lobster&display=swap" rel="stylesheet">
+
+<style>
+body {
+      margin: 0;
+      padding: 0;
+    }
+.navbar {
+      background-color: #007bff;
+      font-family: "Lato", sans-serif;
+      color: #fff;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    /* Estilos para el nombre de la página */
+    .navbar h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    /* Estilos para el enlace de volver atrás */
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Estilos para el icono de la flecha */
+    .navbar a img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .container {
+      max-width: 370px; /* Establecer el ancho máximo */
+      margin: 0 auto; /* Centrar horizontalmente */
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+  h2 {
+    font-family: Lato, sans serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .field {
+    margin-bottom: 15px;
+    width: 310px
+  }
+
+  label {
+    font-weight: bold;
+    color: #333;
+    display: block; /* Hacer que la etiqueta sea de bloque para que esté encima del campo */
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+
+  .btn-primary {
+  background-color: #007bff;
+  width: 100%; /* Ancho al 100% del contenedor */
+  color: #fff;
+  padding: 10px 0; /* Cambiar el espaciado vertical en lugar de horizontal */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-primary a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-family: Lato, sans serif;
+    font-size: 20px;
+  }
+
+  .card {
+  background-color: #fff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  width: 90%; 
+  margin-top: 15px
+}
+
+.card img {
+  width: 64px; /* Ancho de la imagen/icono */
+  height: 64px; /* Altura de la imagen/icono */
+  margin-right: 20px; /* Espacio entre la imagen/icono y el contenido */
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 18px; /* Tamaño de fuente para el nombre */
+}
+.card h2 a{
+  color: #777;
+  text-decoration: none;
+}
+
+.card p {
+  margin: 0;
+  color: #777; /* Color del texto de la fecha */
+}
+
+.cat-total {
+  margin-left: auto; /* Coloca el total a la derecha */
+  text-align: right; /* Alinea el texto a la derecha */
+}
+
+/* Elimina el botón de eliminación */
+.del-btn {
+  display: none;
+}
+</style>
+</head>
+<body>
+  <div class="navbar">
+  <%= link_to destroy_user_session_path, method: :delete do %>
+    <img src="https://img.icons8.com/?size=50&id=26215&format=png" alt="Back" />
+      Log Out
+    </a>
+    <% end %>
+    <h1>Categories</h1>
+  </div>
+
+  <div class="container">
+    <main class="splash_screen">
+      <div class="app_name">
+        <main>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <% if @categories.any? %>
+            <div class="card-list">
+              <% @categories.each do |category| %>
+                <div class="card hover">
+                  <div class="flex-row">
+                    <div class="cat-image">
+                      <%= image_tag category.icon_link.presence || 'https://img.icons8.com/?size=512&id=kLORTzuNOM2d&format=png', alt: "Category Icon" %>
+                    </div>
+                    <div>
+                    <h2><%= link_to category.name, category_expenses_path(category), class: 'text' %></h2>
+                    <p><%= l category.created_at.to_date, format: :long %></p>
+                    </div>
+                  </div>
+                  <div class="cat-total">
+                    <p>$<%= Expense.where(category_id: category.id).sum(:amount) %></p>
+                    <br/>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <p>No categories found.</p>
+          <% end %>
+
+          <!-- Agregamos el nuevo botón "ADD NEW EXPENSE" -->
+          <button class="btn-primary" type="button" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Add a new category">
+            <%= link_to 'ADD NEW CATEGORY', new_category_path %>
+          </button>
+        </main>
+      </div>
+    </main>
+  </div>
+</body>

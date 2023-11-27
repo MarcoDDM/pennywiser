@@ -55,28 +55,16 @@ body {
     margin-bottom: 20px;
   }
 
-  .field {
-    margin-bottom: 15px;
-    width: 310px
-  }
+  .form-field {
+    margin-bottom: 5px;
+    width: 97%;
+    height: 24px;
+}
 
   label {
     font-weight: bold;
     color: #333;
     display: block; /* Hacer que la etiqueta sea de bloque para que esté encima del campo */
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-
-  .actions {
-    margin-top: 20px;
   }
 
   .btn-primary {
@@ -93,74 +81,30 @@ body {
     background-color: #0056b3;
   }
 
-  .remember-me {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-
-  .remember-me input[type="checkbox"] {
-    margin-right: 10px;
-  }
-
-
-  /* Estilos para los enlaces al final del formulario */
-  .form-links {
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .form-links a {
-    color: #007bff;
-    text-decoration: none;
-    margin: 0 10px;
-  }
-
-  .form-links a:hover {
-    text-decoration: underline;
-  }
 </style>
+
 
 <div class="navbar">
     <a href="#" onclick="history.back()">
       <img src="https://img.icons8.com/ios-filled/48/ffffff/long-arrow-left.png" alt="Back" />
       Back
     </a>
-    <h1>Log In</h1>
-  </div>
+    <h1>Add expense</h1>
+</div>
 
-
+<div class="center">
 <div class="container">
-
-<h2>Log in</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name" %>
-  </div>
-
-  <div class="field">
-    <%= f.email_field :email, autocomplete: "email", placeholder: "Email" %>
-  </div>
-
-  <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <div class="remember-me">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, class: "remember-me-label" %>
-      </div>
-    </div>
+  <h2>ADD A NEW EXPENSE</h2>
+  <%= form_with(model: [@category, @expense], local: true) do |f| %>
+    <br/>
+      <br/>
+      <%= f.text_field :name, placeholder: 'Name', class: "form-field" %>
+      <br/>
+      <br/>
+      <%= f.number_field :amount, placeholder: 'Amount', class: "form-field" %>
+      <br/>
+      <br/>
+      <%= f.submit 'Add Expense', class:'btn-primary'%>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn-primary" %>
-  </div>
-<% end %>
-
-<div class="form-links">
-  <%= render "devise/shared/links" %>
 </div>
 </div>
