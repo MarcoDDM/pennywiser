@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :set_expense, only: [:show, :update, :destroy]
+  before_action :set_category, only: %i[show edit update destroy]
+  before_action :set_expense, only: %i[show update destroy]
 
 
   def index
@@ -29,12 +29,11 @@ class CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find_by(id: params[:category_id])
-    if @category.nil?
-      puts "Category not found for category_id: #{params[:category_id]}"
-      redirect_to root_path, alert: 'Category not found'
-    end
+    return unless @category.nil?
+
+    puts "Category not found for category_id: #{params[:category_id]}"
+    redirect_to root_path, alert: 'Category not found'
   end
-  
 
   def category_params
     params.require(:category).permit(:name, :icon_link)

@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
     @category = Category.find(params[:category_id])
     @expense = @category.expenses.new(expense_params)
     @expense.user_id = current_user.id
-  
+
     if @expense.save
       redirect_to category_expenses_path(@category), notice: 'Expense created successfully.'
     else
@@ -25,7 +25,7 @@ class ExpensesController < ApplicationController
       render 'new'
     end
   end
-  
+
 
   private
 
