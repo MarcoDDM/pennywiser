@@ -4,7 +4,6 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: %i[show edit update destroy]
   before_action :set_expense, only: %i[show update destroy]
 
-
   def index
     @categories = Category.includes(:author, :expenses).all
   end
