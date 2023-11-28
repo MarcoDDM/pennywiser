@@ -12,8 +12,13 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
+require 'factory_bot'
+require_relative 'rails_helper'
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::IntegrationHelpers, type: :request
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

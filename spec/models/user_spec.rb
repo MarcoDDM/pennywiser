@@ -1,4 +1,3 @@
-# En tu archivo 'spec/models/user_spec.rb'
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -15,10 +14,4 @@ RSpec.describe User, type: :model do
 
     expect(user.categories).to include(category1, category2)
   end
-
-  # Puedes agregar pruebas adicionales para los módulos de Devise si es necesario.
-
-  # Asegúrate de que todas las configuraciones necesarias de RSpec y FactoryBot estén en su lugar en tu aplicación Rails.
-
-  # Si no estás utilizando FactoryBot, reemplaza las líneas 'create(:user)' y 'create(:category, author: user)' con tus propios métodos de creación de objetos.
 end
