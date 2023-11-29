@@ -1,0 +1,5 @@
+services:
+  - name: pennyapp
+    envVars:
+      - key: DATABASE_URL
+        value: "postgres://pennyapp_user:4URrmOuwX23LPyIbytYDmwPiZ1YOt31V@dpg-ck7pevo8elhc73c384h0-a/pennyapp"
