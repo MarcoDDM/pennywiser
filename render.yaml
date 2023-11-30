@@ -1,7 +1,7 @@
 databases:
-  - name: pennyapp
-    databaseName: pennyapp
-    user: pennyapp_user
+  - name: mysite
+    databaseName: mysite
+    user: mysite
 
 services:
   - type: web
@@ -10,9 +10,9 @@ services:
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: postgres://pennyapp_user:4URrmOuwX23LPyIbytYDmwPiZ1YOt31V@dpg-ck7pevo8elhc73c384h0-a/pennyapp
+      - key: DATABASE_URL
         fromDatabase:
-          name: pennyapp
+          name: mysite
           property: connectionString
-      - key: f59de52f780884e2992da0fefface473
+      - key: RAILS_MASTER_KEY
         sync: false
