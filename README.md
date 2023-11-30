@@ -7,6 +7,13 @@
 
 </div>
 
+<div align="center">
+
+  <h1>PenyWise | Budget Web Application</h1>
+  <br/>
+
+</div>
+
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -37,6 +44,13 @@
 
 **PennyWise** is a BudgetApp
 
+<div align="center">
+
+  <img src="penny_wise_app.png" />
+  <br/>
+
+</div>
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -66,9 +80,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Add expenses**
+- **Add user**
+- **Add category**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,7 +90,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://marcoalmada.online)
+- [Live Demo Link](https://budget-4tug.onrender.com/)
+- 
+- [![Individual Capstone Project Demo - Watch Video](https://cdn.loom.com/sessions/thumbnails/7ca97d686cef4b26b555e9bda21efa16-with-play.gif)](https://www.loom.com/share/7ca97d686cef4b26b555e9bda21efa16)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -177,9 +193,9 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **Add sharing features**
+- [ ] **Add group expenses**
+- [ ] **Add login with social networks like x or gmail**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -205,23 +221,11 @@ If you like this project you can give a star...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank to my coding partners.
+Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
-
-## ❓ FAQ <a name="faq"></a>
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
@@ -231,3 +235,4 @@ This project is [MIT](./LICENSE) licensed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
