@@ -6,7 +6,9 @@
 body {
       margin: 0;
       padding: 0;
+      min-height: 100vh;
     }
+
 .navbar {
       background-color: #007bff;
       font-family: "Lato", sans-serif;
@@ -40,11 +42,11 @@ body {
     }
 
     .container {
-      max-width: 370px; /* Establecer el ancho máximo */
-      margin: 0 auto; /* Centrar horizontalmente */
-      padding: 20px;
+      max-width: 370px;
+      margin: 0 auto;
       border: 1px solid #ccc;
       border-radius: 5px;
+      position: relative; /* Agregamos posición relativa para los elementos posicionados absolutamente */
     }
 
   h2 {
@@ -79,15 +81,18 @@ body {
   }
 
   .btn-primary {
-  background-color: #007bff;
-  width: 100%; /* Ancho al 100% del contenedor */
-  color: #fff;
-  padding: 10px 0; /* Cambiar el espaciado vertical en lugar de horizontal */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 15px;
-}
+      background-color: #007bff;
+      width: 100%;
+      color: #fff;
+      padding: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: fixed; /* Cambiamos a posición fija */
+      bottom: 10px; /* Ajustamos la posición desde la parte inferior */
+      left: 50%; /* Centramos horizontalmente */
+      transform: translateX(-50%); /* Centramos horizontalmente */
+    }
 
   .btn-primary:hover {
     background-color: #0056b3;
