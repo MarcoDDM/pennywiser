@@ -1,0 +1,29 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,700;0,900;1,300;1,400&family=Lilita+One&family=Lobster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app/assets/stylesheets/application.css"> 
+
+<div class="navbar">
+    <a href="#" onclick="history.back()">
+      <img src="https://img.icons8.com/ios-filled/48/ffffff/long-arrow-left.png" alt="Back" />
+      Back
+    </a>
+    <h1>Add expense</h1>
+</div>
+
+<div class="center">
+<div class="container">
+  <h2>ADD A NEW EXPENSE</h2>
+  <%= form_with(model: [@category, @expense], local: true) do |f| %>
+    <br/>
+      <br/>
+      <%= f.text_field :name, placeholder: 'Name', class: "form-field" %>
+      <br/>
+      <br/>
+      <%= f.number_field :amount, placeholder: 'Amount', class: "form-field" %>
+      <br/>
+      <br/>
+      <%= f.submit 'Add Expense', class:'btn-primary'%>
+  <% end %>
+</div>
+</div>

@@ -1,0 +1,61 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,700;0,900;1,300;1,400&family=Lilita+One&family=Lobster&display=swap" rel="stylesheet">
+<stylesheet_link_tag  "application" %>
+
+
+<body>
+<div class="navbar">
+<a href="<%= categories_index_path %>">
+      <img src="https://img.icons8.com/ios-filled/48/ffffff/long-arrow-left.png" alt="Back" />
+      Back
+    </a>
+    <h1><%= @category.name %></h1>
+  </div>
+  <div class="container">
+
+<div class="banner">
+<div class="cat-and-name">
+  <div class="cat-image">
+    <%= image_tag @category.icon_link.presence || 'https://img.icons8.com/?size=512&id=kLORTzuNOM2d&format=png'%>
+  </div>
+  <h1><%= @category.name %></h1>
+  <div>
+  </div>
+    <p></p>
+  </div>
+  <div>
+  </div>
+</div>
+<main>
+   <div class="center">
+      <% if @expenses.blank? %>
+         <p>No Expenses Yet!</p>
+      <% else %>
+         <div class="card-list">
+            <% @expenses.each do |expense| %>
+               <div class="transaction-card hover">
+               <div class="expense-info">
+                  <a><p><%= expense.name %></p></a>
+                  <a>$<%= expense.amount %></a>
+                </div>
+               </div>
+            <% end %>
+         </div>
+      <% end %>
+      <div class="total-banner">
+         <h4>Total Amount</h4>
+         <% if @total_amount.blank? %>
+         <p>$00.00</p>
+      <% else %>
+         <p>$<%=@total_amount %></p>
+      </div>
+      <% end %>
+      <button class="btn-primary" type="button">
+   <%= link_to "ADD A NEW EXPENSE", new_category_expense_path(@category) %>
+  </button>
+   </div>
+   
+</main>
+</div>
+</body>

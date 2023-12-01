@@ -1,0 +1,27 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,700;0,900;1,300;1,400&family=Lilita+One&family=Lobster&display=swap" rel="stylesheet">
+
+
+</head>
+<body class="body-splash">
+<main class="splash-screen">
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>  
+<div class="app-name">
+  <h1 class="large-black-text">PennyWise</h1>
+</div>  
+</main>
+<div class="buttons-container">
+<div class="button-wrapper">
+  <button class="log-btn">
+    <%= link_to('LOG IN', new_user_session_path) %>
+  </button>
+</div>
+<div class="button-wrapper">
+  <button class="sign-btn">
+    <%= link_to('SIGN UP', new_user_registration_path) %>
+  </button>
+</div>
+</div>
+</body>
