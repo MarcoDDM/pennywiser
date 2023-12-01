@@ -1,111 +1,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,700;0,900;1,300;1,400&family=Lilita+One&family=Lobster&display=swap" rel="stylesheet">
+<stylesheet_link_tag  "application" %>
 
-<style>
-body {
-      margin: 0;
-      padding: 0;
-    }
-.navbar {
-      background-color: #007bff;
-      font-family: "Lato", sans-serif;
-      color: #fff;
-      height: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
-    }
-
-    p a{
-      color: #fff4;
-      font-family: "Lato", sans-serif;
-    }
-
-    .navbar h1 {
-      font-size: 18px;
-      margin: 0;
-    }
-
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .navbar a img {
-      width: 20px;
-      height: 20px;
-      margin-right: 5px;
-    }
-
-    /* Estilo para la clase .banner */
-    /* Estilo para la clase .banner */
-    .banner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    
-    /* Estilo para la imagen del icono de la categoría */
-    .cat-image img {
-      max-width: 100px; /* Ajusta el tamaño máximo de la imagen */
-      height: auto; /* Mantiene la proporción de la imagen */
-    }
-    
-    /* Estilo para el contenedor de la imagen y el nombre de la categoría */
-    .cat-and-name {
-      display: flex;
-      flex-direction: row; /* Cambia la dirección a horizontal */
-      align-items: center;
-      justify-content: center; /* Centra horizontalmente los elementos */
-      margin-top: 10px; /* Espacio entre la imagen y el nombre */
-    }
-    
-    /* Estilo para el nombre de la categoría */
-    .category-name h1 {
-      font-size: 24px; /* Tamaño de fuente del nombre de la categoría */
-      margin-left: 10px; /* Espacio entre la imagen y el nombre */
-    }
-    
-    /* Agrega otros estilos según sea necesario */
-    .btn-primary {
-    background-color: #007bff;
-    width: 100%; /* Ancho al 100% del contenedor */
-    color: #fff;
-    padding: 10px 0; /* Cambiar el espaciado vertical en lugar de horizontal */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .btn-primary a {
-    color: #fff;
-    text-decoration: none
-  }
-
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-
-  .center {
-    width: 95%;
-    margin-left: 10px;
-}
-
-.expense-info {
-  display: flex;
-  justify-content: space-between;
-}
-
-
-</style>
 
 <body>
-<div class="container">
 <div class="navbar">
 <a href="<%= categories_index_path %>">
       <img src="https://img.icons8.com/ios-filled/48/ffffff/long-arrow-left.png" alt="Back" />
@@ -113,6 +12,8 @@ body {
     </a>
     <h1><%= @category.name %></h1>
   </div>
+  <div class="container">
+
 <div class="banner">
 <div class="cat-and-name">
   <div class="cat-image">
