@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img src="soyMarco_.png" alt="logo" width="140"  height="auto" />
+  <img src="soyMarco.png" alt="logo" width="140"  height="auto" />
   <br/>
 
 </div>
@@ -44,12 +44,8 @@
 
 **PennyWise** is a BudgetApp
 
-<div align="center">
+![mobile](https://github.com/MarcoDDM/pennywiser/assets/43345162/06703bdf-f91a-4f93-9619-d02b0b0608cd)
 
-  <img src="penny_wise_app.png" />
-  <br/>
-
-</div>
 
 ## 🛠 Built With <a name="built-with"></a>
 
